@@ -1,0 +1,82 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(79, 58, 75);
+    font-family: 'Ubuntu';
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.container {
+    background-color: rgb(236, 240, 241);
+    max-width: 40em;
+}
+
+.accordion-label {
+    background-color: rgb(231, 81, 82);
+    color: rgb(236, 240, 241);
+    font-size: 1.25em;
+    padding: 0.8em;
+    display: block;
+    border-bottom: solid 1px rgb(122, 43, 43);
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion-label:hover {
+    background-color: rgb(171, 60, 60);
+}
+
+.accordion-label:after {
+    content: "V";
+    font-size: 1em;
+    position: absolute;
+    left: 30em;
+    transform: scale(1.5, 0.7);
+}
+
+.accordion-content {
+    overflow-y: hidden;
+    height: 0;
+    transition: all 1s;
+}
+
+.accordion-content h1 {
+    margin: 0;
+    padding: 1.25em 1em 0.5em;
+    color: rgb(79, 58, 75);
+}
+
+.accordion-content p {
+    margin: 0;
+    padding: 0.5em 2em;
+    color: rgb(79, 58, 75);
+}
+
+#accordion-section-1:checked ~ .accordion-section > .accordion-label[for="accordion-section-1"] + .accordion-content,
+#accordion-section-2:checked ~ .accordion-section > .accordion-label[for="accordion-section-2"] + .accordion-content,
+#accordion-section-3:checked ~ .accordion-section > .accordion-label[for="accordion-section-3"] + .accordion-content {
+    height: 250px;
+}
+
+#accordion-section-1:checked ~ .accordion-section > .accordion-label[for="accordion-section-1"],
+#accordion-section-2:checked ~ .accordion-section > .accordion-label[for="accordion-section-2"],
+#accordion-section-3:checked ~ .accordion-section > .accordion-label[for="accordion-section-3"] {
+    background-color: rgb(171, 60, 60);
+}
+
+#accordion-section-1:checked ~ .accordion-section > .accordion-label[for="accordion-section-1"]:after,
+#accordion-section-2:checked ~ .accordion-section > .accordion-label[for="accordion-section-2"]:after,
+#accordion-section-3:checked ~ .accordion-section > .accordion-label[for="accordion-section-3"]:after {
+    transform: scale(1.5, 0.7) rotate(180deg);
+    transition: transform 0.5s;
+}

@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(23, 142, 150);
+    font-family: 'Ubuntu';
+    color: rgb(80, 80, 80);
+}
+
+img {
+    width: 100%;
+}
+
+.button {
+    display: inline-block;
+    z-index: 1;
+    padding: 1em;
+    cursor: pointer;
+    border: solid 2px rgb(253, 227, 200);
+    text-decoration: none;
+    color: rgb(253, 227, 200);
+    border-radius: 3px;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.button:hover {
+    background-color: rgb(18, 113, 120);
+}
+
+.modal-container .button {
+    border: solid 2px rgb(23, 142, 150);
+    color: rgb(23, 142, 150);
+}
+
+.modal-container .button:hover {
+    color: rgb(253, 227, 200);
+}
+
+.flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.modal-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    width: 80%;
+}
+
+div[id^="modal-"]:not(:target) {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+}
+
+div[id^="modal-"]:target {
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    -webkit-transition: opacity 1s, visibility 1s;
+    transition: opacity 1s, visibility 1s;
+}
+
+div[id^="modal-"]:not(:target) > .modal-container {
+    border: solid 1px rgb(23, 142, 150);
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    -webkit-transition: top 500ms;
+    transition: top 500ms;
+    border-radius: 3px;
+    width: 50%;
+}
+
+div[id^="modal-"]:target > .modal-container {
+    border: solid 1px rgb(23, 142, 150);
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    -webkit-transition: top 500ms;
+    transition: top 500ms;
+    border-radius: 3px;
+    width: 50%;
+}
+
+.modal-content {
+    padding: 1em;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    padding: 1em;
+    text-align: right;
+}
+
+.fixed-footer .modal-content {
+    max-height: 40vh;
+    overflow: auto;
+}
+
+.fixed-footer .modal-footer {
+    border-top: solid 1px rgb(23, 142, 150);
+}
